@@ -1,11 +1,12 @@
+#!/bin/bash
 #
 # TranscriptomeRarefaction.bash 
 #
 # depends on:
 #   Trinity
-#   seqtk
 #   RSEM
 #   bowtie2
+#   Samtools
 
 InFasta=""
 InMap=""
