@@ -18,25 +18,27 @@ numCPU=""
 version=1.0
 
 usage_exit() {
-  echo "#" 1>&2
-  echo "# TranscriptomeRarefaction.bash  version-${version}  " 1>&2
-  echo "#" 1>&2
-  echo "# Usage: TranscriptomeRarefaction.bash  -i Trinity.fasta_file -m gene_trans_map_file -1 read_R1.fq -2 read_R2.fq -o output_directory  " 1>&2
-  echo "#" 1>&2
-  echo "# Options: " 1>&2
-  echo "# -i Transcript sequence file (Trinity.fasta) " 1>&2
-  echo "# -m gene_trans_map file (Trinity.fasta.gene_trans_map) " 1>&2
-  echo "# -1 read_R1 " 1>&2  
-  echo "# -2 read_R2 " 1>&2  
-  echo "# -c num_CPUs " 1>&2
-  echo "# -s random seed number (default: 101)" 1>&2
-  echo "# -t TPM threshold (default: 5)" 1>&2
-  echo "#" 1>&2
-  echo "# Requirements: " 1>&2
-  echo "# - Trinity"    1>&2
-  echo "# - bowtie2" 1>&2
-  echo "# - RSEM"   1>&2
-  echo "# - Samtools"   1>&2
+cat << EOS
+  # 
+  # TranscriptomeRarefaction  version-${version} 
+  #
+  # Usage: TranscriptomeRarefaction.bash  -i Trinity.fasta_file -m gene_trans_map_file -1 read_R1.fq -2 read_R2.fq -o output_directory  
+  #
+  # Options: 
+  # -i Transcript sequence file (Trinity.fasta) 
+  # -m gene_trans_map file (Trinity.fasta.gene_trans_map)
+  # -1 read_R1   
+  # -2 read_R2   
+  # -c num_CPUs 
+  # -s random seed number (default: 101)
+  # -t TPM threshold (default: 2)
+  #
+  # Requirements:
+  # - Trinity 
+  # - bowtie2
+  # - RSEM
+  # - Samtools 
+EOS
   exit 1
 }
 
@@ -109,7 +111,7 @@ do
         exit 1
       else
         if  [ `expr "$2" : "[0-9]*$"` -gt 0  ]; then
-          TPMmt="$2" 
+          gtCount="$2" 
           shift 2
         else
           echo " Argument with option $1 should be an integer " 1>&2
@@ -177,32 +179,34 @@ $TRINITY_HOME/util/align_and_estimate_abundance.pl \
               --thread_count ${numCPU} \
               --output_dir  ${outDir}/RSEM_All
 
-Error_Check  align_and_estimate_abundance.pl
+Error_Check  align_and_estimate_abundance
 
 mkdir ${outDir}/RSEM_All/tmp
 mv Trinity.fasta.{RSEM,bowtie2}.* ${outDir}/RSEM_All/tmp
 
-NumGene=$( awk -v tpm=${mtTPM:=5} '{if($6 > tpm) print $0}' ${outDir}/${pID}/RSEM.genes.results | wc -l ) 
-echo "100 ${NumGene}" >>  ${outDir}/GeneCount.txt
+NumGene=$( awk -v tpm=${gtCount:=2} '{if($6 > tpm) print $0}' ${outDir}/${pID}/RSEM.genes.results | wc -l ) 
 Error_Check GeneCount
+
+# record first gene count (all)
+echo "100 ${NumGene}" >>  ${outDir}/GeneCount.txt
 
 ##  RSEM  2nd (for subsampling)
 for i in 0.01 0.05 0.1 0.2 0.3 0.5 0.75 ; do
   # set iteration variables
-  p=`echo "scale=0; ${i} * 100" | bc`  # 0.01 -> 1.00
+  p=`echo "scale=0; ${i} * 100" | bc`   # 0.01 -> 1.00
   Int=${p%.*}                           # 1.00 -> 1 (%)
   Frac=$(printf %02d $Int);             # 1 -> 01 (%)
  
-  # subsample bam file
-  samtools view -s ${Seed:=101}.${Frac} -b ${outDir}/RSEM_All/bowtie2.bam.for_rsem.bam > ${outDir}/p_${Frac}.sam  # -s "SeedNum" + "." + "Proportion"
-  Error_Check SAMtools
+  # subsample bam file ( -s "SeedNum" + "." + "Proportion" )
+  samtools view -s ${Seed:=101}.${Frac} -b ${outDir}/RSEM_All/bowtie2.bam.for_rsem.bam > ${outDir}/p_${Frac}.sam  
+  Error_Check  SAMtools
 
   # RSEM for each subset
   rsem-calculate-expression --num-threads ${numCPU} --sam ${outDir}/p_${Frac}.sam --paired-end ${outDir}/RSEM_All/tmp/Trinity.fasta.RSEM  ${outDir}/p_${Frac}
   Error_Check  RSEM
 
   # count number of expressed genes (above the TPM threshold)
-  NumGene=$( awk -v tpm=${mtTPM:=5} '{if($6 > tpm) print $0}' ${outDir}/${Frac}/RSEM.genes.results | wc -l ) 
+  NumGene=$( awk -v gtC=${gtCount:=2} '{if($5 > gtC) print $0}' ${outDir}/${Frac}/RSEM.genes.results | wc -l ) 
   Error_Check GeneCount
 
   # record results in output file
