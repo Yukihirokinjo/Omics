@@ -164,7 +164,7 @@ fi
 
 
 ## prep output directory and file
-mkdir -p ./${outDir}
+mkdir -p ${outDir}
 Error_Check Create_OutDir
 echo "Prop. NumGenes" > ${outDir}/GeneCount.txt
 
