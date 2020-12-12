@@ -50,11 +50,11 @@ $ source ~/.bashrc
 ## 3. Running TranscriptomeRarefaction.bash
 
 ### 3.1 Input data
-
+```
 Transcriptome assembly (fasta)
 Illumina paired-end reads (fastq)
 gene_trans_map file (Trinity.fasta.gene_trans_map)
-
+```
 
 
 ### 3.2 Quick start
