@@ -190,11 +190,6 @@ Error_Check  align_and_estimate_abundance
 mkdir ${outDir}/RSEM_All/tmp
 mv Trinity.fasta.{RSEM,bowtie2}.* ${outDir}/RSEM_All/tmp
 
-NumGene=$( awk -v gtC=${gtCount:=2} '{if($6 > gtC) print $0}' ${outDir}/RSEM_All/RSEM.genes.results | wc -l ) 
-Error_Check GeneCount
-
-# record first gene count (all)
-echo "100 ${NumGene}" >>  ${outDir}/GeneCount.txt
 
 ##  RSEM  2nd (for subsampling)
 for i in 0.01 0.05 0.1 0.2 0.3 0.5 0.75 ; do
@@ -212,7 +207,7 @@ for i in 0.01 0.05 0.1 0.2 0.3 0.5 0.75 ; do
   Error_Check  RSEM
 
   # count number of expressed genes (above the TPM threshold)
-  NumGene=$( awk -v gtC=${gtCount:=2} '{if($5 > gtC) print $0}' ${outDir}/${Frac}.RSEM.genes.results | wc -l ) 
+  NumGene=$( awk -v gtC=${gtCount:=2} '{if($5 > gtC) print $0}' ${outDir}/p_${Frac}.RSEM.genes.results | wc -l ) 
   Error_Check GeneCount
 
   # record results in output file
@@ -224,6 +219,10 @@ for i in 0.01 0.05 0.1 0.2 0.3 0.5 0.75 ; do
 
 done
 
+# record original gene count (all)
+NumGene=$( awk -v gtC=${gtCount:=2} '{if($6 > gtC) print $0}' ${outDir}/RSEM_All/RSEM.genes.results | wc -l ) 
+Error_Check GeneCount
+echo "100 ${NumGene}" >>  ${outDir}/GeneCount.txt
 
 
 
