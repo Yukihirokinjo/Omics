@@ -160,7 +160,7 @@ if [ -z "$readR2" ]; then
 fi
 
 # default output directory
-[ -z $out_dir ] && out_dir="TCRF_OUT_`date +%Y%m%d`_`date +%H%M`"
+[ -z $outDir ] && outDir="TCRF_OUT_`date +%Y%m%d`_`date +%H%M`"
 
 
 ## prep output directory and file
