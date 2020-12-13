@@ -42,7 +42,7 @@ $ chmod u+x *.R
 Thereafter, add the path to your PATH.
 For example..
 ```
-$ echo 'export PATH=/path/to/Omics_dir/:$PATH' >> ~/.bashrc
+$ echo 'export PATH=/path/to/Omics_dir/TCRF:$PATH' >> ~/.bashrc
 $ source ~/.bashrc
 ```
 
@@ -87,7 +87,7 @@ $ TranscriptomeRarefaction.bash   -i Trinity.fasta_file -m gene_trans_map_file -
 
         -s              <INT>   Random seed number for subsampling bam file  (default: 101).
 
-        -t              <INT>   Threshold in the "expected read count" (default: 5).
+        -t              <INT>   Threshold for the "expected read count" (default: 2).
 
 
 --------------------------------------------------------------------------------
