@@ -42,6 +42,7 @@ $ chmod u+x *.R
 Thereafter, add the path to your PATH.
 For example..
 ```
+$ chmod 755 /path/to/Omics_dir/TCRF/*.bash 
 $ echo 'export PATH=/path/to/Omics_dir/TCRF:$PATH' >> ~/.bashrc
 $ source ~/.bashrc
 ```
