@@ -17,7 +17,7 @@ Seed=""
 TPMmt=""
 numCPU=""
 Info_SamBam=""
-version=1.0
+version=1.1
 
 usage_exit() {
 cat << EOS

@@ -1,4 +1,4 @@
-#   TranscriptomeRarefaction ver. 1.0
+#   TranscriptomeRarefaction ver. 1.1
 
 
 ## 0. Introduction
@@ -33,16 +33,14 @@ In the directory, change their permissions to be executable.
 
 ```
 git clone https://github.com/Yukihirokinjo/Omics.git
-cd Omics
+cd Omics/TCRF
 
 $ chmod u+x *.bash
-$ chmod u+x *.R
 ```
 
 Thereafter, add the path to your PATH.
 For example..
 ```
-$ chmod 755 /path/to/Omics_dir/TCRF/*.bash 
 $ echo 'export PATH=/path/to/Omics_dir/TCRF:$PATH' >> ~/.bashrc
 $ source ~/.bashrc
 ```
