@@ -7,8 +7,8 @@
 #   RSEM
 #   bowtie2
 #   Samtools
-#	Salmon
-#	Seqtk
+#   Salmon
+#   Seqtk
 
 InFasta=""
 InMap=""
@@ -266,8 +266,8 @@ else
 	  Frac=$(printf %02d $Int);             # 1 -> 01 (%)
 	
 	  # subsample bam file ( -s "SeedNum" + "." + "Proportion" )
-	  seqtk sample -s100 ${readR1}  ${i}  > ${outDir}/p_${i}_R1.fastq 
-	  seqtk sample -s100 ${readR2}  ${i}  > ${outDir}/p_${i}_R2.fastq 
+	  seqtk sample -s ${Seed:=101} ${readR1}  ${i}  > ${outDir}/p_${i}_R1.fastq 
+	  seqtk sample -s ${Seed:=101} ${readR2}  ${i}  > ${outDir}/p_${i}_R2.fastq 
 	  Error_Check  Seqtk
 
 	  # salmon for each subset

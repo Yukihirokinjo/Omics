@@ -10,12 +10,12 @@
 TranscriptomeRarefaction depend on:
 
 
-        seqtk           (https://github.com/lh3/seqtk)
-        R               ver. >3.0
-        Bowtie2         ver. >2.1       (http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
-        Samtools        ver. >=1.9      (https://github.com/samtools/samtools)
-        Trinity         ver. >=2.8      (https://github.com/trinityrnaseq/trinityrnaseq)
-        RSEM            ver. >=1.3      (http://deweylab.github.io/RSEM)
+        seqtk                    (https://github.com/lh3/seqtk)
+        Salmon                   ver. >1.3       (https://combine-lab.github.io/salmon/)
+        Bowtie2 (Optional)       ver. >2.1       (http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
+        Samtools (Optional)      ver. >=1.9      (https://github.com/samtools/samtools)
+        Trinity (Optional)       ver. >=2.8      (https://github.com/trinityrnaseq/trinityrnaseq)
+        RSEM (Optional)          ver. >=1.3      (http://deweylab.github.io/RSEM)
 
 
         Add paths for the executables of these tools to your PATH.
@@ -79,6 +79,10 @@ $ TranscriptomeRarefaction.bash   -i Trinity.fasta_file -m gene_trans_map_file -
         -2              <FILE>  Input read file (reverse).
 
         Optional:
+
+        -Salmon         <BOOL>   Use Salmon for abundance estimation (default).
+
+        -RSEM         <BOOL>   Use RSEM for abundance estimation.
 
         -o              <STR>   Output directory (default: "TCRF_Out_<current time>).
 
