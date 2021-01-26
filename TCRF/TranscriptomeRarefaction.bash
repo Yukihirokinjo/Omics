@@ -7,6 +7,8 @@
 #   RSEM
 #   bowtie2
 #   Samtools
+#	Salmon
+#	Seqtk
 
 InFasta=""
 InMap=""
@@ -14,7 +16,7 @@ Read1=""
 Read2=""
 outDir=""
 Seed=""
-TPMmt=""
+EstMethod=""
 numCPU=""
 Info_SamBam=""
 version=2.0
