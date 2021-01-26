@@ -222,7 +222,7 @@ if [ ${EstMethod} == "RSEM" ] ; then
 	  Frac=$(printf %02d $Int);             # 1 -> 01 (%)
 	 
 	  # subsample bam file ( -s "SeedNum" + "." + "Proportion" )
-	  samtools view -s ${Seed:=101}.${Frac} -b ${outDir}/RSEM_All/bowtie2.bam.for_rsem.bam > ${outDir}/p_${Frac}.sam  
+	  samtools view -s ${Seed:=101}.${Frac} -b ${outDir}/RSEM_All/bowtie2.bam > ${outDir}/p_${Frac}.sam  
 	  Error_Check  SAMtools
 
 	  # RSEM for each subset
