@@ -15,7 +15,7 @@ TranscriptomeRarefaction depend on:
         Bowtie2 (Optional)       ver. >2.1       (http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
         Samtools (Optional)      ver. >=1.9      (https://github.com/samtools/samtools)
         Trinity (Optional)       ver. >=2.8      (https://github.com/trinityrnaseq/trinityrnaseq)
-        RSEM (Optional)          ver. >=1.3      (http://deweylab.github.io/RSEM)
+        RSEM (Optional)          ver. >=1.3.3      (http://deweylab.github.io/RSEM)
 
 
         Add paths for the executables of these tools to your PATH.

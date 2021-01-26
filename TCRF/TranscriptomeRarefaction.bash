@@ -213,7 +213,6 @@ if [ ${EstMethod} == "RSEM" ] ; then
 	mv Trinity.fasta.{RSEM,bowtie2}.* ${outDir}/RSEM_All/tmp
 
 
-
 	##  RSEM  2nd (for subsampling)
 	for i in 0.01 0.05 0.1 0.2 0.3 0.5 0.75 ; do
 	  # set iteration variables
@@ -230,14 +229,14 @@ if [ ${EstMethod} == "RSEM" ] ; then
 	  Error_Check  RSEM
 
 	  # count number of expressed genes (above the TPM threshold)
-	  NumGene=$( awk -v gtC=${gtCount:=2} '{if($5 > gtC) print $0}' ${outDir}/p_${Frac}.RSEM.genes.results | wc -l ) 
+	  NumGene=$( awk -v gtC=${gtCount:=2} '{if($5 > gtC) print $0}' ${outDir}/p_${Frac}.genes.results | wc -l ) 
 	  Error_Check GeneCount
 
 	  # record results in output file
 	  echo "${Frac} ${NumGene}" >>  ${outDir}/GeneCount.txt
 
 	  if [ -z "$Info_SamBam" ]; then
-	    rm  ${outDir}/p_${Frac}.{sam,bam}    
+	    rm  ${outDir}/p_${Frac}.transcript.{sam,bam}    
 	  fi
 
 	done
