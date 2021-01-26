@@ -255,8 +255,6 @@ else
 	salmon quant -i ref_idx -l A -1 ${readR1} -2 ${readR2}  -p ${numCPU:=1} -o ${outDir}/Salmon_All --validateMappings
 	Error_Check  SalmonQuant
 
-	mkdir ${outDir}/Salmon_All/tmp
-
 	##  Salmon  2nd (for subsampling)
 	for i in 0.01 0.05 0.1 0.2 0.3 0.5 0.75 ; do
 	  # set iteration variables
