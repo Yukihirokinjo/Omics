@@ -1,4 +1,4 @@
-#   TranscriptomeRarefaction ver. 2.0
+#   TranscriptomeRarefaction ver. 2.1
 
 
 ## 0. Introduction
