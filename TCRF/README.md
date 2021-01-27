@@ -3,7 +3,7 @@
 
 ## 0. Introduction
 
-For transcriptome completeness evaluation.
+Evaluation of sequencing effort for transcriptome data.
 
 ## 1. Prerequisites
 
@@ -46,7 +46,7 @@ $ source ~/.bashrc
 ```
 
 
-## 3. Running TranscriptomeRarefaction.bash
+## 3. Running TranscriptomeRarefaction
 
 ### 3.1 Input data
 ```
