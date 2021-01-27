@@ -1,9 +1,9 @@
-#   TranscriptomeRarefaction ver. 1.1
+#   TranscriptomeRarefaction ver. 2.0
 
 
 ## 0. Introduction
 
-
+For transcriptome completeness evaluation.
 
 ## 1. Prerequisites
 

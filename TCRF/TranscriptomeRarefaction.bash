@@ -2,13 +2,13 @@
 #
 # TranscriptomeRarefaction.bash 
 #
-# depends on:
-#   Trinity
-#   RSEM
-#   bowtie2
-#   Samtools
-#   Salmon
-#   Seqtk
+# Requirements:
+# - Salmon
+# - Seqtk
+# - Trinity (optional for "-RSEM")
+# - bowtie2 (optional for "-RSEM")
+# - RSEM (optional for "-RSEM")
+# - Samtools (optional for "-RSEM")
 
 InFasta=""
 InMap=""
@@ -41,12 +41,12 @@ cat << EOS
   # -t read count threshold (default: 2)
   #
   # Requirements:
-  # - Trinity 
-  # - bowtie2
-  # - RSEM
   # - Salmon
   # - Seqtk
-  # - Samtools 
+  # - Trinity (optional for "-RSEM")
+  # - bowtie2 (optional for "-RSEM")
+  # - RSEM (optional for "-RSEM")
+  # - Samtools (optional for "-RSEM")
 EOS
   exit 1
 }
