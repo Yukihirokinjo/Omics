@@ -19,7 +19,7 @@ Seed=""
 EstMethod=""
 numCPU=""
 Info_SamBam=""
-version=2.1
+version=2.2
 
 usage_exit() {
 cat << EOS
