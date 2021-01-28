@@ -214,7 +214,7 @@ if [ ${EstMethod} == "RSEM" ] ; then
 
 
 	##  RSEM  2nd (for subsampling)
-	for i in 0.01 0.05 0.1 0.2 0.3 0.5 0.75 ; do
+	for i in 0.01 0.05 0.1 0.2 0.4 0.6 0.8 ; do
 	  # set iteration variables
 	  p=`echo "scale=0; ${i} * 100" | bc`   # 0.01 -> 1.00
 	  Int=${p%.*}                           # 1.00 -> 1 (%)
@@ -256,7 +256,7 @@ else
 	Error_Check  SalmonQuant
 
 	##  Salmon  2nd (for subsampling)
-	for i in 0.01 0.05 0.1 0.2 0.3 0.5 0.75 ; do
+	for i in 0.01 0.05 0.1 0.2 0.4 0.6 0.8 ; do
 	  # set iteration variables
 	  p=`echo "scale=0; ${i} * 100" | bc`   # 0.01 -> 1.00
 	  Int=${p%.*}                           # 1.00 -> 1 (%)
