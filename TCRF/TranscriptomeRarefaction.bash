@@ -35,7 +35,7 @@ cat << EOS
   # Arguments (Optional): 
   # --RSEM		use RSEM for abundance estimation (default)
   # --Salmon	use Salmon for abundance estimation
-  # -m gene_trans_map file (for RSEM: Trinity.fasta.gene_trans_map)
+  # -m gene_trans_map file (for RSEM; Trinity.fasta.gene_trans_map)
   # -c num_CPUs 
   # -s random seed number (default: 101)
   # -t read count threshold (default: 2)

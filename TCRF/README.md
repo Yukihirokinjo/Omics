@@ -72,8 +72,6 @@ $ TranscriptomeRarefaction.bash   -i Trinity.fasta_file -m gene_trans_map_file -
         Mandatory:
         -i              <FILE>  Trinity assembly file (Trinity.fasta).
 
-        -m              <FILE>  "gene_trans_map" file (Trinity.fasta.gene_trans_map). 
-
         -1              <FILE>  Input read file (forward).
 
         -2              <FILE>  Input read file (reverse).
@@ -82,7 +80,9 @@ $ TranscriptomeRarefaction.bash   -i Trinity.fasta_file -m gene_trans_map_file -
 
         -Salmon         <BOOL>   Use Salmon for abundance estimation (default).
 
-        -RSEM         <BOOL>   Use RSEM for abundance estimation.
+        -RSEM           <BOOL>   Use RSEM for abundance estimation.
+
+        -m              <FILE>  "gene_trans_map" file (for RSEM; Trinity.fasta.gene_trans_map). 
 
         -o              <STR>   Output directory (default: "TCRF_Out_<current time>).
 
