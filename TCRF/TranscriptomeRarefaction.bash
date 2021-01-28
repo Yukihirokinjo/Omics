@@ -249,10 +249,10 @@ if [ ${EstMethod} == "RSEM" ] ; then
 ############################################################ if EstMethod == Salmon
 else
 	##  Slmon  1st (for All data)
-	salmon index -p ${numCPU:=1} -t ${InFasta} -i ref_idx
+	salmon index -p ${numCPU:=1} -t ${InFasta} -i ${outDir}/ref_idx
 	Error_Check  SalmonInDex
 
-	salmon quant -i ref_idx -l A -1 ${readR1} -2 ${readR2}  -p ${numCPU:=1} -o ${outDir}/Salmon_All --validateMappings
+	salmon quant -i ${outDir}/ref_idx -l A -1 ${readR1} -2 ${readR2}  -p ${numCPU:=1} -o ${outDir}/Salmon_All --validateMappings
 	Error_Check  SalmonQuant
 
 	##  Salmon  2nd (for subsampling)
@@ -268,7 +268,7 @@ else
 	  Error_Check  Seqtk
 
 	  # salmon for each subset
-	  salmon quant -i ref_idx -l A -1 ${outDir}/p_${i}_R1.fastq -2 ${outDir}/p_${i}_R2.fastq -p ${numCPU:=1} -o ${outDir}/p_${Frac} --validateMappings
+	  salmon quant -i ${outDir}/ref_idx -l A -1 ${outDir}/p_${i}_R1.fastq -2 ${outDir}/p_${i}_R2.fastq -p ${numCPU:=1} -o ${outDir}/p_${Frac} --validateMappings
 	  Error_Check  SalmonQuant
 
 	  # count number of expressed genes (above the TPM threshold)
@@ -286,8 +286,11 @@ else
 	Error_Check GeneCount
 	echo "100 ${NumGene}" >>  ${outDir}/GeneCount.txt
 
+rm -rf  ${outDir}/ref_idx
 
 fi
+
+# delete index directory
 
 
 
