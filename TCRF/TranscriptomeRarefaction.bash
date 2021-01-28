@@ -26,16 +26,16 @@ cat << EOS
   # 
   # TranscriptomeRarefaction  version-${version} 
   #
-  # Usage: TranscriptomeRarefaction.bash  -i Trinity.fasta_file -m gene_trans_map_file -1 read_R1.fq -2 read_R2.fq -o output_directory  
+  # Usage: TranscriptomeRarefaction.bash  -i Trinity.fasta_file -1 read_R1.fq -2 read_R2.fq -o output_directory  
   #
   # Arguments (mandatory): 
   # -i Transcript sequence file (Trinity.fasta) 
-  # -m gene_trans_map file (Trinity.fasta.gene_trans_map)
   # -1 read_R1   
   # -2 read_R2   
   # Arguments (Optional): 
   # --RSEM		use RSEM for abundance estimation (default)
   # --Salmon	use Salmon for abundance estimation
+  # -m gene_trans_map file (for RSEM; Trinity.fasta.gene_trans_map)
   # -c num_CPUs 
   # -s random seed number (default: 101)
   # -t read count threshold (default: 2)
