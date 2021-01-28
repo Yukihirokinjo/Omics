@@ -286,11 +286,11 @@ else
 	Error_Check GeneCount
 	echo "100 ${NumGene}" >>  ${outDir}/GeneCount.txt
 
+# delete index directory
 rm -rf  ${outDir}/ref_idx
 
 fi
 
-# delete index directory
 
 
 
