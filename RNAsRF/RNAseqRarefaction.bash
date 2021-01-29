@@ -10,7 +10,7 @@
 # - RSEM (optional for "-RSEM")
 # - Samtools (optional for "-RSEM")
 
-version=2.3
+version=2.4
 
 InFasta=""
 InMap=""
@@ -31,12 +31,12 @@ cat << EOS
   # Usage: RNAseqRarefaction.bash  -i cds.fasta -1 read_R1.fq -2 read_R2.fq -o output_directory  
   #
   # Arguments (mandatory): 
-  # -i Transcript sequence file (Trinity.fasta) 
+  # -i Transcript sequence or CDS sequence file (fasta format) 
   # -1 read_R1   
   # -2 read_R2   
   # Arguments (Optional): 
-  # --RSEM		use RSEM for abundance estimation (default)
-  # --Salmon	use Salmon for abundance estimation
+  # --Salmon	use Salmon for abundance estimation (default)
+  # --RSEM    use RSEM for abundance estimation
   # -m gene_trans_map file (for RSEM; Trinity.fasta.gene_trans_map)
   # -c num_CPUs
   # -s random seed number (default: 101)

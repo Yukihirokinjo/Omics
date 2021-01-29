@@ -1,4 +1,4 @@
-#   RNAseqRarefaction ver. 2.3
+#   RNAseqRarefaction ver. 2.4
 
 
 ## 0. Introduction
@@ -50,7 +50,7 @@ $ source ~/.bashrc
 
 ### 3.1 Input data
 ```
-Transcriptome assembly (fasta)
+Transcriptome assembly or coding sequence (fasta)
 Illumina paired-end reads (fastq)
 gene_trans_map file (Trinity.fasta.gene_trans_map)
 ```
@@ -60,7 +60,7 @@ gene_trans_map file (Trinity.fasta.gene_trans_map)
 
 ##### 
 ```
-$ RNAseqRarefaction.bash   -i Trinity.fasta_file -m gene_trans_map_file -1 read_R1.fq -2 read_R2.fq -o output_directory 
+$ RNAseqRarefaction.bash   -i cds.fasta -m gene_trans_map_file -1 read_R1.fq -2 read_R2.fq -o output_directory 
 ```
 
 
@@ -70,7 +70,7 @@ $ RNAseqRarefaction.bash   -i Trinity.fasta_file -m gene_trans_map_file -1 read_
 ##### 
 
         Mandatory:
-        -i              <FILE>  Trinity assembly file (Trinity.fasta).
+        -i              <FILE>  Transcriptome assembly or CDS sequence file (fasta format).
 
         -1              <FILE>  Input read file (forward).
 
