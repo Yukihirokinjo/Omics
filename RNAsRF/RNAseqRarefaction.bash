@@ -34,6 +34,7 @@ cat << EOS
   # -i Transcript sequence or CDS sequence file (fasta format) 
   # -1 read_R1   
   # -2 read_R2   
+  #
   # Arguments (Optional): 
   # --Salmon	use Salmon for abundance estimation (default)
   # --RSEM    use RSEM for abundance estimation
@@ -182,7 +183,7 @@ if [ -z "$readR2" ]; then
 fi
 
 # default output directory
-[ -z $outDir ] && outDir="TCRF_OUT_`date +%Y%m%d`_`date +%H%M`"
+[ -z $outDir ] && outDir="RNAsRF_OUT_`date +%Y%m%d`_`date +%H%M`"
 
 if [ -z "$EstMethod" ]; then
   EstMethod="Salmon"

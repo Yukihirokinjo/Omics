@@ -33,7 +33,7 @@ In the directory, change their permissions to be executable.
 
 ```
 git clone https://github.com/Yukihirokinjo/Omics.git
-cd Omics/TCRF
+cd Omics/RNAsRF
 
 $ chmod u+x *.bash
 ```
@@ -41,7 +41,7 @@ $ chmod u+x *.bash
 Thereafter, add the path to your PATH.
 For example..
 ```
-$ echo 'export PATH=/path/to/Omics_dir/TCRF:$PATH' >> ~/.bashrc
+$ echo 'export PATH=/path/to/Omics_dir/RNAsRF:$PATH' >> ~/.bashrc
 $ source ~/.bashrc
 ```
 
@@ -84,7 +84,7 @@ $ RNAseqRarefaction.bash   -i cds.fasta -m gene_trans_map_file -1 read_R1.fq -2 
 
         -m              <FILE>  "gene_trans_map" file (for RSEM; Trinity.fasta.gene_trans_map). 
 
-        -o              <STR>   Output directory (default: "TCRF_Out_<current time>).
+        -o              <STR>   Output directory (default: "RNAsEF_Out_<current time>).
 
         -c              <INT>   Number of threads to be used for computation (default: 1).
 
