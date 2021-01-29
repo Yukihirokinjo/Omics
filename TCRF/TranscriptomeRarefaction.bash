@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# TranscriptomeRarefaction.bash 
+# RNAseqRarefaction.bash 
 #
 # Requirements:
 # - Salmon
@@ -9,6 +9,8 @@
 # - bowtie2 (optional for "-RSEM")
 # - RSEM (optional for "-RSEM")
 # - Samtools (optional for "-RSEM")
+
+version=2.3
 
 InFasta=""
 InMap=""
@@ -19,14 +21,14 @@ Seed=""
 EstMethod=""
 numCPU=""
 Info_SamBam=""
-version=2.2
+
 
 usage_exit() {
 cat << EOS
   # 
-  # TranscriptomeRarefaction  version-${version} 
+  # RNAseqRarefaction  version-${version} 
   #
-  # Usage: TranscriptomeRarefaction.bash  -i Trinity.fasta_file -1 read_R1.fq -2 read_R2.fq -o output_directory  
+  # Usage: RNAseqRarefaction.bash  -i cds.fasta -1 read_R1.fq -2 read_R2.fq -o output_directory  
   #
   # Arguments (mandatory): 
   # -i Transcript sequence file (Trinity.fasta) 
@@ -36,9 +38,9 @@ cat << EOS
   # --RSEM		use RSEM for abundance estimation (default)
   # --Salmon	use Salmon for abundance estimation
   # -m gene_trans_map file (for RSEM; Trinity.fasta.gene_trans_map)
-  # -c num_CPUs 
+  # -c num_CPUs
   # -s random seed number (default: 101)
-  # -t read count threshold (default: 2)
+  # -t read count threshold (default: 1)
   #
   # Requirements:
   # - Salmon

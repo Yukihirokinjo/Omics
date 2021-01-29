@@ -1,13 +1,13 @@
-#   TranscriptomeRarefaction ver. 2.2
+#   RNAseqRarefaction ver. 2.3
 
 
 ## 0. Introduction
 
-Evaluation of sequencing effort for transcriptome data.
+Evaluation of sequencing effort for RNAseq data.
 
 ## 1. Prerequisites
 
-TranscriptomeRarefaction depend on:
+RNAseqRarefaction depend on:
 
 
         seqtk                    (https://github.com/lh3/seqtk)
@@ -46,7 +46,7 @@ $ source ~/.bashrc
 ```
 
 
-## 3. Running TranscriptomeRarefaction
+## 3. Running RNAseqRarefaction
 
 ### 3.1 Input data
 ```
@@ -60,7 +60,7 @@ gene_trans_map file (Trinity.fasta.gene_trans_map)
 
 ##### 
 ```
-$ TranscriptomeRarefaction.bash   -i Trinity.fasta_file -m gene_trans_map_file -1 read_R1.fq -2 read_R2.fq -o output_directory 
+$ RNAseqRarefaction.bash   -i Trinity.fasta_file -m gene_trans_map_file -1 read_R1.fq -2 read_R2.fq -o output_directory 
 ```
 
 
@@ -90,7 +90,7 @@ $ TranscriptomeRarefaction.bash   -i Trinity.fasta_file -m gene_trans_map_file -
 
         -s              <INT>   Random seed number for subsampling bam file  (default: 101).
 
-        -t              <INT>   Threshold for the "expected read count" (default: 2).
+        -t              <INT>   Threshold for the "expected read count" (default: 1).
 
 
 --------------------------------------------------------------------------------
