@@ -14,8 +14,12 @@
 chooseCRANmirror(graphics=FALSE, ind=49)
 if(!require(seqinr)) install.packages("seqinr")
 library(seqinr)
-if(!require(IRanges)) install.packages("IRanges")
-library(IRanges)
+
+if (!requireNamespace("BiocManager", quietly = TRUE))
+install.packages("BiocManager")
+
+BiocManager::install("IRanges")
+
 
 args        <- commandArgs(trailingOnly = T)
 RPSbla.out  <- args[1]
