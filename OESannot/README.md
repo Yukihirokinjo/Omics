@@ -44,7 +44,7 @@ or
 ```
 OESannot-1.sh  -f input_genome.fna  [Optin: -c num_CPU ]
 
-OESannot-2.sh  -f input_genome.fna -g input_genome_merge.gff -d ${OESADIR} [Optin: -c num_CPU ]
+OESannot-2.sh  -f input_genome.fna -gc input_genome_merge.gff -d ${OESADIR} [Optin: -c num_CPU ]
 ```
 NOTE: "input_genome_merge.gff" is the output of OESannot-1.sh.
 
