@@ -11,7 +11,7 @@ gCode=$5
 
 grep -v ^"#"  ${GFF}  > ${GFF}_gff2faa.gff
 
- Rscript $(which gff2faa.R) ${GFF}_gff2faa.gff ${FNA} ${TAG}  ${gCode:=11}
+ R --vanilla --slave --args  ${GFF}_gff2faa.gff ${FNA} ${TAG}  ${gCode:=11}  < $(which gff2faa.R) 
 
 cat gff2.faa > ${Name}.faa
 cat gff2RNA.fna > ${Name}_RNAs.fna

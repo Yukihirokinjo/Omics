@@ -9,8 +9,13 @@ if(!require(stringr)) install.packages("stringr")
 library(stringr)
 
 
-fna     <- read.fasta("tmp_query_genome.fna")        #指定したファイルをFASTA形式で読み込み
-genepos <- read.table("tmp_genepos.tsv")             #指定したファイルの読み込み
+args      <- commandArgs(trailingOnly = T)
+InFasta   <- args[1]
+InGenPos  <- args[2]
+
+
+fna     <- read.fasta(InFasta)      
+genepos <- read.table(InGenPos)          
 
 Contig  <- genepos[,1]
 start   <- genepos[,2]

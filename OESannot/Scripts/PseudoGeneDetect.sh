@@ -19,7 +19,7 @@ mkdir Pseudo
 cp ${InGFF} Pseudo/input.gff
 cd Pseudo
 
-Rscript $(which PseudoGeneDetect.R) input.gff 
+R --vanilla --slave --args  input.gff < $(which PseudoGeneDetect.R) 
 
 GFFmerge.bash   Pseudogene.gff  CandiFunctional.gff   Abnormal
 

@@ -139,7 +139,7 @@ grep -v ^"#" ${ProdiGFF} | \
 awk  'BEGIN{FS=";"}{ Conf=(substr($7, (index($7,"=") + 1) ))}{ if(int(Conf)< 70) print $0 }' > ProdigiLC.gff
 diff ${ProdiGFF}  ProdigiLC.gff  | grep ^"<" | sed "s/< //g" > tmp_ProdigiLCrm.gff
 
-  Rscript $(which gff2faa.R)  ProdigiLC.gff  ${Genome}  LowConf
+  R --vanilla --slave --args  ProdigiLC.gff  ${Genome}  LowConf  <  $(which gff2faa.R) 
 
 cat gff2.faa > ${Name}_prodi_LowConf.faa
 rm  gff2.faa

@@ -42,9 +42,9 @@ or
 
 ## USAGE 
 ```
-OESannot-1.sh  -f input_genome.fna  [Optin: -c num_CPU ]
+OESannot-1.sh  -f input_genome.fna -d /path/to/OESannot_directory  [Optin: -c num_CPU ]
 
-OESannot-2.sh  -f input_genome.fna -gff input_genome_merge.gff [Optin: -c num_CPU ]
+OESannot-2.sh  -f input_genome.fna -g input_genome_merge.gff -d /path/to/OESannot_directory [Optin: -c num_CPU ]
 ```
 NOTE: "input_genome_merge.gff" is the output of OESannot-1.sh.
 

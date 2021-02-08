@@ -14,7 +14,7 @@ Name=$4
 gCode=$5
 
 
-  Rscript $(which ORFwalk.R)  "${Gff}" "${Fna}" ${Ext} ${gCode:=11} 
+  R --vanilla --slave --args  "${Gff}" "${Fna}" ${Ext} ${gCode:=11}  < $(which ORFwalk.R) 
 
 
 cat ORFw.gff  >  ${Name}_ORFw.gff

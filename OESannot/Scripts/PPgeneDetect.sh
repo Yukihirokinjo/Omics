@@ -20,7 +20,7 @@ gCode=$7
 
 cd ./PPgene
 
-Rscript $(which gff2faa.R)  tmp_input.gff  tmp_input.fna  ${Name}  ${gCode:=11}
+R --vanilla --slave --args   tmp_input.gff  tmp_input.fna  ${Name}  ${gCode:=11}  < $(which gff2faa.R) 
 cat gff2.faa > tmp_input.faa
 
 cp ${COGinfo} ./tmp_COGinfo.csv
@@ -35,10 +35,10 @@ diamond blastp --sensitive  -d tmp_ref.faa -q tmp_input.faa -k 1 --max-hsps 1 -e
 rm ./tmp_ref.faa.*
 awk '{print $1, $2, $11, $9, $10}' blast.out | uniq > tmp_bla.out
 
-Rscript $(which BlastMultiHitExtract.R)  tmp_bla.out tmp_COGinfo.csv
+R --vanilla --slave --args   tmp_bla.out tmp_COGinfo.csv  < $(which BlastMultiHitExtract.R) 
 
 
-Rscript $(which PPgeneDetect.R)   tmp_BlastMultiHit_Continuous.txt  tmp_input.fna ${gCode:=11}
+R --vanilla --slave --args   tmp_BlastMultiHit_Continuous.txt  tmp_input.fna ${gCode:=11}  < $(which PPgeneDetect.R) 
 
 
 if [ -e "PPrecode.faa" ]; then

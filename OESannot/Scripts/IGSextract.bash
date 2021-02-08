@@ -22,7 +22,7 @@ awk '$3 ~ /RNA|CDS|pseudo|PPgene/ {OFS="\t"; print $1,$4,$5}' tmp_input.gff > tm
 
 #R------------------------------------------------------
 
-Rscript $(which IGSeq.R)
+R --vanilla --slave --args  tmp_query_genome.fna  tmp_genepos.tsv  < $(which IGSeq.R)
 
 #R------------------------------------------------------
 

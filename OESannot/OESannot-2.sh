@@ -243,9 +243,9 @@ PseudoGeneDetect.sh  ${GenName}_IGShit_PPgene_ShortEval_merge.gff ${GenName}
 
 printf  "\n## ------------------------ Generating Result Files ------------------ ##\n\n"
 
-Rscript $(which gff2faaFin.R)  ${GenName}_PseudoEval_merge.gff ${Genome}  ${GenName}  ${gCode:=11} 3
+R --vanilla --slave --args  ${GenName}_PseudoEval_merge.gff ${Genome}  ${GenName}  ${gCode:=11} 3  <  $(which gff2faaFin.R) 
 mv  addLocusTag.gff  ${GenName}_OESA.gff
-Rscript $(which gffSummary.R)  ${GenName}_OESA.gff ${Genome} ${GenName}
+R --vanilla --slave --args  ${GenName}_OESA.gff ${Genome} ${GenName} < $(which gffSummary.R)
 
 # cp ${GenName}_OESA.gff ${GenName}.faa ${GenName}.ffn ${GenName}.frn  ${GenName}_Summary.txt  ..
 

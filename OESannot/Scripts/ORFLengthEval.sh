@@ -42,7 +42,7 @@ diamond blastp --sensitive  -d tmp_DB -q tmp_input.faa -k 1 --max-hsps 1 -e 0.1 
 
 ## R: Evaluate sequence length
 
-  Rscript $(which ORFLengthEval.R) tmp_ORFLen_bla.out  tmp_input.faa  tmp_COGinfo.csv   tmp_COGLength.txt  tmp_DB.faa  ${Prop}
+  R --vanilla --slave --args   tmp_ORFLen_bla.out  tmp_input.faa  tmp_COGinfo.csv   tmp_COGLength.txt  tmp_DB.faa  ${Prop} < $(which ORFLengthEval.R)
 
 ##
 

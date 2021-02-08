@@ -49,7 +49,7 @@ rpsblast -db ${CDD} -query tmp_input.faa -evalue 1e-5  -outfmt 6 -out RPS_custom
 
 ## R
 
-  Rscript $(which DomCompEval.R)  RPS_custom6  tmp_input.faa  cddid_extract.tbl ${Prop}  
+  R --vanilla --slave --args  RPS_custom6  tmp_input.faa  cddid_extract.tbl ${Prop}  < $(which DomCompEval.R)
 
 ##
 

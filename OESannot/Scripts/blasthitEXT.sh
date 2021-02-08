@@ -187,7 +187,7 @@ if [ -s ${name}_${RefName}.blast ]; then
   : > tmp_BLASThit.fna
   : > tmp_BLASThit.gff
 
-   Rscript $(which blasthitEXT.R)    ${name}  ${Qtype} ${gCode:=11}
+   R --vanilla --slave --args  ${name}  ${Qtype} ${gCode:=11}  < $(which blasthitEXT.R)  
 
   # Sort output gff (Because the output gff/fasta entries are originally stored by BLAST hit score for each sequence)
   cat tmp_BLASThit.gff | sort -k 1,1 -k 4n,5  >  ${name}_BLASThit.gff
