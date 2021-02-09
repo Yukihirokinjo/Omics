@@ -97,6 +97,7 @@ do
 				echo "PROGRAM: option requires an argument $1" 1>&2
 				exit 1
 			else
+				Out="$2"
 				OutDir="${2}_curation" 
 				if  [ ! -e "${OutDir}"  ]; then
 					echo "Output directory = ${OutDir}" 
@@ -164,7 +165,7 @@ if [ -e "${OutDir}" ] || [ -d "${OutDir}" ]; then
 fi
 
 Genome=$(basename ${genome})
-GenName=$(basename ${OutDir})
+GenName=$(basename ${Out})
 
 mkdir ${OutDir}
 cp ${genome}  ./${OutDir}/
