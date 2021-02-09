@@ -249,7 +249,7 @@ R --vanilla --slave --args  ${GenName}_PseudoEval_merge.gff ${Genome}  ${GenName
 mv  addLocusTag.gff  ${GenName}_OESA.gff
 R --vanilla --slave --args  ${GenName}_OESA.gff ${Genome} ${GenName} < $(which gffSummary.R)
 
-# cp ${GenName}_OESA.gff ${GenName}.faa ${GenName}.ffn ${GenName}.frn  ${GenName}_Summary.txt  ..
+cp ${GenName}_OESA.gff ${GenName}.faa ${GenName}.ffn ${GenName}.frn  ${GenName}_Summary.txt  ..
 
 cd ..
 
