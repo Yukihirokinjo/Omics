@@ -141,8 +141,6 @@ COGinfo=${OESADIR}/db/cog/cog2003-2014.csv
 COGLen=${OESADIR}/db/cog/COGconsensus_LengthInfo2.txt
 RefGenome=${OESADIR}/db/cog/prot2003-2014.fa 
 
-Genome=$(basename ${genome})
-GenName=${Genome%.*}
 
 [ -z "${OutDir}" ] && OutDir=${GenName}_curation
 
@@ -164,6 +162,9 @@ if [ -e "${OutDir}" ] || [ -d "${OutDir}" ]; then
 	esac
 	echo
 fi
+
+Genome=$(basename ${genome})
+GenName=$(basename ${OutDir})
 
 mkdir ${OutDir}
 cp ${genome}  ./${OutDir}/

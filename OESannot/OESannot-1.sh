@@ -119,9 +119,6 @@ done
 [ -z "$OESADIR" ] && echo "The OESADIR environment variable is not set. Please check README file."
 
 
-Genome=$(basename ${genome})
-GenName="${Genome%.*}"
-
 [ -z "${OutDir}" ] && OutDir=${GenName}_predict
 
 if [ -e "${OutDir}" ] || [ -d "${OutDir}" ]; then
@@ -142,6 +139,9 @@ if [ -e "${OutDir}" ] || [ -d "${OutDir}" ]; then
 	esac
 	echo
 fi
+
+Genome=$(basename ${genome})
+GenName=$(basename ${OutDir})
 
 Rfam=${OESADIR}/db/rfam/Rfam.cm
 
